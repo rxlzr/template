@@ -1,0 +1,52 @@
+{
+  "name": "fastify-backend",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": "18",
+    "npm": "please-use-pnpm",
+    "pnpm": "7",
+    "vscode": "*",
+    "yarn": "please-use-pnpm"
+  },
+  "engineStrict": true,
+  "packageManager": "pnpm@7.9.0",
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest run",
+    "watch": "vitest watch",
+    "build": "vite build",
+    "serve": "node dist/app.js",
+    "check": "tsc --noEmit",
+    "fix": "eslint --fix --max-warnings 0 --cache '**/*.{cjs,js,mjs,cts,ts,mts,jsx,tsx}'",
+    "format": "prettier --cache --write '**/*.{cjs,js,json,mjs,ts,tsx,cts,mts,html,css,yaml,yml,json}'",
+    "ff": "concurrently \"tsc --noEmit\" \"$npm_package_scripts_fix && $npm_package_scripts_format\" \"depcheck\"",
+    "lint": "concurrently \"tsc --noEmit\" \"$npm_package_scripts_fix && $npm_package_scripts_format\" \"depcheck\"",
+    "clean": "rimraf dist && mkdirp dist",
+    "cilint": "concurrently \"$npm_package_scripts_check\" \"prettier --no-cache --no-write --check '**/*.{cjs,js,json,mjs,ts,tsx,cts,mts,html,css,yaml,yml,json}'\" \"eslint --no-fix --max-warnings 0 --no-cache '**/*.{cjs,js,mjs,cts,ts,mts,jsx,tsx}'\" \"depcheck\" \"vitest run\"",
+    "cibuild": "concurrently \"$npm_package_scripts_cilint\" \"vite build\"",
+    "ci": "rimraf dist && mkdirp dist && concurrently \"$npm_package_scripts_cilint\" \"vite build\""
+  },
+  "devDependencies": {
+    "@swc/core": "^1.2.224",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "concurrently": "^7.3.0",
+    "depcheck": "^1.4.3",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "mkdirp": "^1.0.4",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "terser": "^5.14.2",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.14",
+    "vite-plugin-node": "^1.0.0",
+    "vitest": "^0.15.2"
+  },
+  "dependencies": {
+    "fastify": "^4.4.0"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "template",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": "18",
+    "npm": "please-use-pnpm",
+    "pnpm": "7",
+    "vscode": "*",
+    "yarn": "please-use-pnpm"
+  },
+  "engineStrict": true,
+  "packageManager": "pnpm@7.9.0",
+  "workspaces": [
+    "js/*"
+  ],
+  "scripts": {
+    "dev": "pnpm run --stream --parallel dev",
+    "test": "pnpm -r test",
+    "watch": "pnpm run --stream --parallel watch",
+    "build": "pnpm -r build",
+    "serve": "pnpm run --stream --parallel serve",
+    "check": "concurrently \"prettier --no-cache --no-write --check '**/*.{cjs,js,json,mjs,ts,tsx,cts,mts,html,css,yaml,yml,json}'\" \"pnpm -r check\"",
+    "fix": "pnpm -r fix",
+    "format": "concurrently \"prettier --cache --write '**/*.{cjs,js,json,mjs,ts,tsx,cts,mts,html,css,yaml,yml,json}'\" \"pnpm -r format\"",
+    "ff": "concurrently \"prettier --cache --write '**/*.{cjs,js,json,mjs,ts,tsx,cts,mts,html,css,yaml,yml,json}'\" \"pnpm -r ff\"",
+    "lint": "concurrently \"prettier --cache --write '**/*.{cjs,js,json,mjs,ts,tsx,cts,mts,html,css,yaml,yml,json}'\" \"pnpm -r lint\"",
+    "clean": "pnpm -r clean",
+    "cilint": "concurrently \"prettier --no-cache --no-write --check '**/*.{cjs,js,json,mjs,ts,tsx,cts,mts,html,css,yaml,yml,json}'\" \"pnpm -r cilint\"",
+    "cibuild": "concurrently \"prettier --no-cache --no-write --check '**/*.{cjs,js,json,mjs,ts,tsx,cts,mts,html,css,yaml,yml,json}'\" \"pnpm -r cibuild\"",
+    "ci": "concurrently \"prettier --no-cache --no-write --check '**/*.{cjs,js,json,mjs,ts,tsx,cts,mts,html,css,yaml,yml,json}'\" \"pnpm -r ci\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0",
+    "pnpm": "^7.9.0",
+    "prettier": "^2.7.1"
+  }
+}

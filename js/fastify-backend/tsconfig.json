@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@static/*": ["static/*"]
+    },
+    "target": "esnext",
+    "rootDir": ".",
+    "lib": ["esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "plugins": [],
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "allowJs": false,
+    "strict": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "noEmitOnError": false,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "noUncheckedIndexedAccess": true,
+    "incremental": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "types": ["vite/client"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "spec/**/*.ts", "spec/**/*.tsx"]
+}

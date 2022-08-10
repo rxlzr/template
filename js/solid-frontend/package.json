@@ -1,0 +1,57 @@
+{
+  "name": "solid-frontend",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": "18",
+    "npm": "please-use-pnpm",
+    "pnpm": "7",
+    "vscode": "*",
+    "yarn": "please-use-pnpm"
+  },
+  "engineStrict": true,
+  "packageManager": "pnpm@7.9.0",
+  "scripts": {
+    "dev": "vite --port 60602 --cors",
+    "test": "vitest run",
+    "watch": "vitest watch",
+    "build": "vite build",
+    "serve": "vite --port 60603 preview",
+    "check": "tsc --noEmit",
+    "fix": "eslint --fix --max-warnings 0 --cache '**/*.{cjs,js,mjs,cts,ts,mts,jsx,tsx}'",
+    "format": "stylelint --fix --cache '**/*.css' && prettier --cache --write '**/*.{cjs,js,json,mjs,ts,tsx,cts,mts,html,css,yaml,yml,json}'",
+    "ff": "concurrently \"tsc --noEmit\" \"$npm_package_scripts_fix && $npm_package_scripts_format\" \"depcheck\"",
+    "lint": "concurrently \"tsc --noEmit\" \"$npm_package_scripts_fix && $npm_package_scripts_format\" \"depcheck\"",
+    "clean": "rimraf dist && mkdirp dist",
+    "cilint": "concurrently \"$npm_package_scripts_check\" \"prettier --no-cache --no-write --check '**/*.{cjs,js,json,mjs,ts,tsx,cts,mts,html,css,yaml,yml,json}'\" \"eslint --no-fix --max-warnings 0 --no-cache '**/*.{cjs,js,mjs,cts,ts,mts,jsx,tsx}'\" \"stylelint --no-fix --no-cache '**/*.css'\" \"depcheck\" \"vitest run\"",
+    "cibuild": "concurrently \"$npm_package_scripts_cilint\" \"vite build\"",
+    "ci": "rimraf dist && mkdirp dist && concurrently \"$npm_package_scripts_cilint\" \"vite build\""
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "concurrently": "^7.3.0",
+    "depcheck": "^1.4.3",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-solid": "^0.7.1",
+    "jsdom": "^20.0.0",
+    "mkdirp": "^1.0.4",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "solid-testing-library": "^0.3.0",
+    "stylelint": "^14.9.1",
+    "stylelint-order": "^5.0.0",
+    "terser": "^5.14.2",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.5",
+    "vite-plugin-solid": "^2.3.0",
+    "vitest": "^0.15.2"
+  },
+  "dependencies": {
+    "solid-app-router": "^0.4.2",
+    "solid-js": "^1.4.8"
+  }
+}

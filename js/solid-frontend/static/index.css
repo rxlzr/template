@@ -1,0 +1,12 @@
+body,
+html {
+  color: #fff;
+  font-size: 14px;
+  font-family: Source Han Sans, Source Sans Pro, sans-serif;
+  background: #34495e;
+}
+
+button,
+input {
+  font-family: Source Han Mono, Source Code Pro, monospace;
+}
